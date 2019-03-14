@@ -33,7 +33,6 @@ for linha in tables[1:]:
        estados[estado] = 1
 
 
-print(estados)
 maior=0
 
 for estad in estados:
