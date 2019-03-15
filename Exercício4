@@ -14,33 +14,20 @@ site_connect = Scrapy_Table(url)
 # Pegando a tabela 5 (Vereadores em exercicio)
 tables = site_connect.get_tables(0)
 
-estados =  { }
-
-for linha in tables[1:]:
-    estad = linha[2]
-    if int(linha[4]) > 100000:  
-    
-      if estad in estados:
-       
-       estados[estad] += 1
-      else:
-       
-       estados[estad] = 1
-
-#/////////////////////////////////////////////////////////////////
-#Parte relevante do código é a que está abaixo, deixei a de cima pois não estava conseguindo declarar nenhuma da variaveis com a linha[]
+linha = tables[1]
 
 maior = int(linha[4])
-pop = int(linha[4])
 muni = linha[2]
 estado = linha[3]
 
 for linha in tables[1:]:
+   
+    pop = int(linha[4])
 
     if pop < maior:
    
         muni = linha[2]
         maior =  pop    
-        estado = linha[3]     
+        estado = linha[3]
 
 print ("O município com o menor número de habitantes é",muni,"e está localizado em",estado )
